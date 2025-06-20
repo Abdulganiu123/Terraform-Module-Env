@@ -33,17 +33,21 @@ To begin working in a specific environment (e.g., `dev`), initialize the backend
 
 ```bash
 terraform init --backend-config="dev.tfbackend"
+```
 
 💡 Note: If you've previously initialized another environment (e.g., qa) and need to switch back, you must reconfigure:
 
 Terraform will prompt whether to migrate state — you can safely use --reconfigure to point to the new backend without affecting other environments.
 
-terraform init --backend-config="dev.tfbackend" --reconfigure 
+```bash
+terraform init --backend-config="dev.tfbackend" --reconfigure
+```
 
 Once initialized, apply your infrastructure using the environment-specific tfvars file:
 
+```bash
 terraform apply -var-file="dev.tfvars"
-
+```
 
 Repeat the process for other environments (qa, prod) by replacing the respective .tfvars and .tfbackend files.
 
